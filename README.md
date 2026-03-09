@@ -1,28 +1,49 @@
-# MCP OAuth Skill
+# AutoSend MCP Skill
 
-An [OpenClaw](https://github.com/openclaw/openclaw) skill for connecting to OAuth-based MCP servers using [mcporter](https://github.com/nicobailon/mcporter).
+An [OpenClaw](https://github.com/openclaw/openclaw) skill for connecting to [AutoSend](https://autosend.com) email platform via MCP.
 
 ## What is this?
 
-This skill documents how to connect OpenClaw (an AI agent framework) to MCP (Model Context Protocol) servers that require OAuth authentication.
+This skill enables AI agents (Claude, OpenClaw, etc.) to manage email campaigns, templates, and contacts through AutoSend's MCP server using [mcporter](https://github.com/steipete/mcporter).
 
 ## Quick Start
 
-See [SKILL.md](./SKILL.md) for setup instructions.
+```bash
+# Install mcporter
+npm install -g mcporter
 
-## Structure
+# Add AutoSend server
+mcporter config add autosend https://mcp.autosend.com/ --auth oauth
 
+# Authenticate
+mcporter auth autosend
+
+# Test
+mcporter call autosend.list_templates
 ```
-mcp-oauth-skill/
-├── SKILL.md           # Main skill instructions (OpenClaw reads this)
-├── config/
-│   └── mcporter.json  # MCP server configuration template
-└── scripts/           # Helper scripts (if needed)
+
+## Headless Server Setup
+
+For servers without a browser, use the OAuth helper:
+
+```bash
+node scripts/oauth-helper.js init      # Get auth URL
+# → Open URL in browser, authorize, copy callback URL
+node scripts/oauth-helper.js exchange "http://127.0.0.1:8765/callback?code=XXX"
+node scripts/oauth-helper.js test      # Verify
 ```
 
-## Status
+## Available Tools
 
-🚧 **Work in Progress** — being developed and documented live.
+21 tools for managing:
+- Email templates
+- Campaigns
+- Contact lists & segments
+- Senders
+- Suppression groups
+- Analytics
+
+See [SKILL.md](./SKILL.md) for full documentation.
 
 ## License
 

@@ -139,4 +139,5 @@ node scripts/oauth-helper.js test
 
 - [AutoSend MCP Docs](https://docs.autosend.com/ai/mcp-server)
 - [mcporter GitHub](https://github.com/steipete/mcporter)
+- [mcporter on ClawhHub](https://clawhub.ai/steipete/mcporter)
 - [MCP Specification](https://modelcontextprotocol.io/)

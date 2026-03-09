@@ -1,10 +1,10 @@
 {
-  "$schema": "https://raw.githubusercontent.com/nicobailon/mcporter/main/config/mcporter.schema.json",
-  "servers": {
-    "example-mcp": {
-      "baseUrl": "https://example-mcp-server.com",
-      "auth": "oauth",
-      "description": "Example OAuth MCP server (replace with actual config)"
+  "mcpServers": {
+    "autosend": {
+      "baseUrl": "https://mcp.autosend.com/",
+      "description": "AutoSend email MCP",
+      "auth": "oauth"
     }
-  }
+  },
+  "imports": []
 }
